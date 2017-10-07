@@ -1,0 +1,31 @@
+{
+    "name": "elementius/wordpressium",
+    "description": "An opinionated Wordpress base installer setup",
+    "keywords" : ["wordpress"],
+    "type": "project",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Jamieson Roberts",
+            "email": "hello@jamiesonroberts.ca"
+        }
+    ],
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "johnpbloch/wordpress": "*",
+        "lkwdwrd/wp-muplugin-loader": "^1.0",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
