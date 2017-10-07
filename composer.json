@@ -1,7 +1,9 @@
 {
     "name": "elementius/wordpressium",
     "description": "An opinionated Wordpress base installer setup",
-    "keywords" : ["wordpress"],
+    "keywords": [
+        "wordpress"
+    ],
     "type": "project",
     "license": "GPL-3.0+",
     "authors": [
@@ -19,7 +21,7 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "johnpbloch/wordpress": "*",
+        "johnpbloch/wordpress": "^4.8",
         "lkwdwrd/wp-muplugin-loader": "^1.0",
         "vlucas/phpdotenv": "^2.4"
     },
@@ -27,5 +29,19 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "extra": {
+        "wordpress-install-dir": "public/app",
+        "installer-paths": {
+            "public/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "public/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "public/plugins/required/{$name}/": [
+                "type:wordpress-muplugin"
+            ]
+        }
     }
 }
