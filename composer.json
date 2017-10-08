@@ -25,6 +25,9 @@
         "lkwdwrd/wp-muplugin-loader": "^1.0",
         "vlucas/phpdotenv": "^2.4"
     },
+    "autoload": {
+        "files" : ["bootstrap/app.php"]
+    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
