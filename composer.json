@@ -1,6 +1,6 @@
 {
     "name": "elementius/wordpressium",
-    "description": "An opinionated Wordpress base installer setup",
+    "description": "An opinionated Wordpress base project setup",
     "keywords": [
         "wordpress"
     ],
