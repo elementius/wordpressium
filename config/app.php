@@ -7,3 +7,13 @@
 define('WEBROOT', ROOTPATH . '/public');
 define('WP_USE_THEMES', true);
 
+/** Define your environment or default to production */
+define('WPENV', env('WPENV', 'production'));
+
+/**
+ * Define WP Home and Site URL based on the requesting URL.
+ * This allows for easier moving between local, staging, and production
+ * environments without having to worry about adjusting the database.
+ */
+define('WP_HOME', serverProtocol() . $_SERVER['HTTP_HOST']);
+define('WP_SITEURL', serverProtocol() . $_SERVER['HTTP_HOST'] . '/app');
