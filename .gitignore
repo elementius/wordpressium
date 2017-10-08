@@ -6,3 +6,5 @@ vendor/
 
 public/app/
 public/plugins/
+
+.env
