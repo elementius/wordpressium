@@ -14,5 +14,5 @@ define('WP_USE_THEMES', true);
  */
 if (!file_exists(ROOTPATH . '/.env')) {
     echo 'You are missing an environment file.';
-    throw new exception('You are missing an environment file.');
+    die;
 }
