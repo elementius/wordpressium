@@ -23,6 +23,18 @@ try {
     die;
 }
 
+if (!function_exists( 'hostURL')) {
+    /**
+     * Returns the host url including server protocol
+     *
+     * @return string
+     */
+    function hostURL()
+    {
+        return serverProtocol() . $_SERVER['HTTP_HOST'];
+    }
+}
+
 if (!function_exists('serverProtocol')) {
     /**
      * Returns the http protocol part of the request URL
