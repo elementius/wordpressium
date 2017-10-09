@@ -63,3 +63,25 @@ define('WP_ALLOW_REPAIR', env('ALLOW_REPAIR', false));
  * you to enable or disable this via the ENV file.
  */
 define('WP_ALLOW_MULTISITE', env('MULTISITE', false));
+
+
+/**
+ * Wordpress by default saves everything for all time. The following settings
+ * tell Wordpress to handle garbage collection automatically. This limits the
+ * number of post revisions saved to 5 and will automatically remove trash items
+ * older than 30 days. This also enables the media library trash instead of
+ * automatically deleting files, but only saves the most recent revisions of
+ * an image to ensure that multiple versions aren't being saved and wasting space.
+ */
+define('WP_POST_REVISIONS', 5);
+define('EMPTY_TRASH_DAYS', 30);
+define('MEDIA_TRASH', true);
+define('IMAGE_EDIT_OVERWRITE', true);
+
+/**
+ * Wordpress leaves a particularly nasty exploit by default which is the editor.
+ * This disables the editor while also allowing Wordpress to complete minor
+ * security updates and localization updates.
+ */
+define('DISALLOW_FILE_EDIT', true);
+define('WP_AUTO_UPDATE_CORE', 'minor');
