@@ -85,3 +85,15 @@ define('IMAGE_EDIT_OVERWRITE', true);
  */
 define('DISALLOW_FILE_EDIT', true);
 define('WP_AUTO_UPDATE_CORE', 'minor');
+
+/**
+ * One of the primary things this Wordpress aims to solve is the file structure
+ * mimicking some of Laravel's setup. This moves around Wordpress' folders to a
+ * more sane structure while leaving the core files in a subfolder the way it
+ * should be.
+ */
+define('WP_CONTENT_DIR', WEBROOT);
+define('WP_CONTENT_URL', WP_HOME);
+define('WPMU_PLUGIN_DIR', WEBROOT . '/plugins/required');
+define('WPMU_PLUGIN_URL', WP_HOME . '/plugins');
+define('UPLOADS', '../uploads');
