@@ -2,7 +2,7 @@
 /**
  * This file is required in the root of the public folder. Wordpress looks at the root of its folder,
  * or one folder above for a wp-config file. This file will include any composer packages for
- * leveraging autoloading as well as setting up the configuration and environment for wordpress.
+ * leveraging autoload as well as setting up the configuration and environment for wordpress.
  */
 
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
