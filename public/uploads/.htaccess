@@ -1,3 +1,10 @@
+# Restrict access htaccess
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
 # Disable PHP execution in the uploads folder
 <Files *.php>
 deny from all
