@@ -1,6 +1,3 @@
-# Disable directory browsing
-Options -Indexes +FollowSymLinks
-
 # Restrict access htaccess
 <files ~ "^.*\.([Hh][Tt][Aa])">
 order allow,deny
@@ -15,6 +12,8 @@ deny from all
 </files>
 
 <IfModule mod_rewrite.c>
+Options -Indexes -FollowSymLinks -MultiViews +SymLinksIfOwnerMatch
+
 RewriteEngine on
 
 </IfModule>
