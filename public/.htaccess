@@ -34,8 +34,8 @@ RewriteRule ^app/wp-includes/[^/]+\.php$ - [F,L]
 RewriteRule ^app/wp-includes/js/tinymce/langs/.+\.php - [F,L]
 RewriteRule ^app/wp-includes/theme-compat/ - [F,L]
 
-RewriteCond %{QUERY_STRING} (author=\d+) [NC]
-RewriteRule .* - [F]
+RewriteCond %{QUERY_STRING} author=d
+RewriteRule ^ /? [L,R=301]
 
 </IfModule>
 
