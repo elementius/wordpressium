@@ -9,3 +9,10 @@ satisfy all
 <Files *.php>
 deny from all
 </Files>
+
+# Only explicitly allow certain file types
+Order deny,allow
+Deny from all
+<Files ~ ".(xml|css|js|jpe?g|png|gif|pdf|doc?x|rtf|odf|zip)$">
+Allow from all
+</Files>
