@@ -1,3 +1,9 @@
+# Limit HTTP request types to only needed types
+<LimitExcept GET POST>
+	Order Allow,Deny
+	Deny from all
+</LimitExcept>
+
 # Restrict access htaccess
 <files ~ "^.*\.([Hh][Tt][Aa])">
 order allow,deny
