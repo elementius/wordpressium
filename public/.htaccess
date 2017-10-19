@@ -11,6 +11,12 @@ order allow,deny
 deny from all
 </files>
 
+# Block WordPress xmlrpc.php requests
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+</Files>
+
 # Applying security restrictions with rewrite rules
 <IfModule mod_rewrite.c>
 Options -Indexes -FollowSymLinks -MultiViews +SymLinksIfOwnerMatch
@@ -27,6 +33,9 @@ RewriteRule !^app/wp-includes/ - [S=3]
 RewriteRule ^app/wp-includes/[^/]+\.php$ - [F,L]
 RewriteRule ^app/wp-includes/js/tinymce/langs/.+\.php - [F,L]
 RewriteRule ^app/wp-includes/theme-compat/ - [F,L]
+
+RewriteCond %{QUERY_STRING} (author=\d+) [NC]
+RewriteRule .* - [F]
 
 </IfModule>
 
