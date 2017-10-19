@@ -43,4 +43,7 @@ vendor/
 public/app/
 public/plugins/
 
+# Dotenv
 .env
+.env.*
+!.env.example
