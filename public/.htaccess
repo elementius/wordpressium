@@ -1,3 +1,6 @@
+# Disable server signature
+ServerSignature Off
+
 # Limit HTTP request types to only needed types
 <LimitExcept GET POST>
 	Order Allow,Deny
@@ -33,15 +36,6 @@ RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
 RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
 RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 RewriteRule ^(.*)$ index.php [F,L]
-
-RewriteRule ^app/wp-admin/includes/ - [F,L]
-RewriteRule !^app/wp-includes/ - [S=3]
-RewriteRule ^app/wp-includes/[^/]+\.php$ - [F,L]
-RewriteRule ^app/wp-includes/js/tinymce/langs/.+\.php - [F,L]
-RewriteRule ^app/wp-includes/theme-compat/ - [F,L]
-
-RewriteCond %{QUERY_STRING} author=d
-RewriteRule ^ /? [L,R=301]
 
 </IfModule>
 
