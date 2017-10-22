@@ -38,12 +38,9 @@ Thumbs.db
 # Repository installed files
 node_modules/
 vendor/
-
-# Project specific ignores
 public/app/
-public/plugins/
 
-# Dotenv
+# Environment Files
 .env
 .env.*
 !.env.example
