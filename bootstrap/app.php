@@ -148,3 +148,43 @@ if (!function_exists('value')) {
         return $value instanceof Closure ? $value() : $value;
     }
 }
+
+if (! function_exists('mix')) {
+    /**
+     * Get the path to a versioned Mix file.
+     *
+     * @param $path
+     * @param string $manifestDirectory
+     * @return HtmlString|string
+     *
+     * @throws Exception
+     */
+    function mix($path, $manifestDirectory = '')
+    {
+        static $manifests = [];
+        if (! stringStartsWith($path, '/')) {
+            $path = "/{$path}";
+        }
+        if ($manifestDirectory && ! stringStartsWith($manifestDirectory, '/')) {
+            $manifestDirectory = "/{$manifestDirectory}";
+        }
+        if (file_exists(public_path($manifestDirectory.'/hot'))) {
+            return ("//localhost:8080{$path}");
+        }
+        $manifestPath = public_path($manifestDirectory.'/mix-manifest.json');
+        if (! isset($manifests[$manifestPath])) {
+            if (! file_exists($manifestPath)) {
+                throw new Exception('The Mix manifest does not exist.');
+            }
+            $manifests[$manifestPath] = json_decode(file_get_contents($manifestPath), true);
+        }
+        $manifest = $manifests[$manifestPath];
+        if (! isset($manifest[$path])) {
+            report(new Exception("Unable to locate Mix file: {$path}."));
+            if (! app('config')->get('app.debug')) {
+                return $path;
+            }
+        }
+        return new HtmlString($manifestDirectory.$manifest[$path]);
+    }
+}
