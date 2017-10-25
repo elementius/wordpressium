@@ -1,0 +1,15 @@
+{
+    "themeName": [
+        "theme1",
+        "theme2",
+        "theme3"
+    ],
+    "src": {
+        "styles": "assets/scss",
+        "scripts": "assets/js",
+        "images": "assets/images"
+    },
+    "dest": {
+        "theme": "public/themes/"
+    }
+}
